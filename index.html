@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preqt-psi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <section class="navbar-parent">
+        <header class="navbar parent">
+            <div class=navbar-first-part>
+                <div class="nav-logo"><img src="images/navbar/logo.svg" alt="logo"></div>
+                <div class="nav-links">
+                    <div class="nav-item">
+                        <a href="#">Deals</a>
+                        <div class="helo"></div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#">Community</a>
+                        <div class="helo"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-btn">
+                <button class="nav-btn-container">
+                    <span class="nav-btn-content">Sign In</span>
+                </button>
+            </div>
+        </header>
+    </section>
+
+    <section class=hero-section>
+        <div class="hero-container">
+            <video autoplay muted loop id="myVideo">
+                <source src="images/hero/hero-banner.webm" type="video/webm">
+            </video>
+            <div class="hero-content">
+                <h1><span>Access Exclusive</span>
+                    <br>
+                    <span> IPO &amp; Pre-IPO Deals</span>
+                </h1>
+                <p>Join the premier platform for private equity investments.<br>Get early access to high-growth
+                    companies before they go public.</p>
+
+                <div class="hero-btn-wrapper">
+                    <div class="herobtn-blurborder herobtn-layer2">
+                        <div class="hero-btn-border"></div>
+                    </div><a class="hero-btn-a" href="#">
+                        <div class="hero-btn-glow-wrapper">
+                            <div class="hero-btn-glow1"></div>
+                            <div class="hero-btn-glow2"></div>
+                        </div>
+                        <div class="hero-btn"><span class="hero-btn-text">Get Started
+                                Today</span>
+                            <div class="hero-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"
+                                    aria-hidden="true">
+                                    <path d="M18 8L22 12L18 16"></path>
+                                    <path d="M2 12H22"></path>
+                                </svg></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img class="desktop-view" src="images/hero/image.png" alt="laser-flow">
+                <img class="mobile-view" src="images/hero/mobile-video.png" alt="laser-flow">
+
+            </div>
+            <img src="/images/hero/overlay.png" style="height:150px;width:100%" class="hero-overlay">
+        </div>
+    </section>
+
+    <!-- hero-section-bottom -->
+    <div style="background:#120a02;width:100%;height:100%;position:relative;z-index: 23;">
+        <section class="hero-bottom-container parent" style="padding-bottom:50px">
+            <div class="hero-bottom-content">
+                <p>Everything you need to raise capital with confidence</p>
+                <div class="hero-bottom-list">
+                    <div class='hero-item'><span class="hero-bottom-text">Verified Deals</span>
+                        <svg class="hero-bullet" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12.1" cy="12.1" r="1"></circle>
+                        </svg>
+                    </div>
+                    <div class='hero-item'><span class="hero-bottom-text">Secure Data Rooms</span>
+                        <svg class="hero-bullet" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12.1" cy="12.1" r="1"></circle>
+                        </svg>
+                    </div>
+                    <div class='hero-item'><span class="hero-bottom-text">Investor Network</span>
+                        <svg class="hero-bullet" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12.1" cy="12.1" r="1"></circle>
+                        </svg>
+                    </div>
+                    <div class='hero-item'><span class="hero-bottom-text">Pre-IPO &amp; IPO Access</span>
+                        <svg class="hero-bullet" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12.1" cy="12.1" r="1"></circle>
+                        </svg>
+
+                    </div>
+                    <div class='hero-item'><span class="hero-bottom-text">Real-Time Analytics</span>
+
+                        <svg class="hero-bullet" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12.1" cy="12.1" r="1"></circle>
+                        </svg>
+
+                    </div>
+                    <div class='hero-item'>
+                        <span class="hero-bottom-text">Smart Tracking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="images/welcome/overlay.png" style="height:100%;width:100%" class="hero-overlay2">
+    </div>
+
+    <!-- Welcome Section -->
+
+    <section class="welcome-section">
+        <img src="images/welcome/overlay.png" alt="overlay" class="welcome-overlay">
+        <div class="welcome-container">
+            <video class="welcome-video" autoplay muted loop playsinline>
+                <source src="images/welcome/0_Animation_Light_1920x1010.mp4" type="video/mp4">
+            </video>
+
+            <div class="welcome-content content-1" style="transform: scale(1); opacity: 1;">
+                <div class="tag-indicator">
+                    <span class="bullet">•</span>
+                    Welcome to pr.eqt.
+                </div>
+
+                <h1><span>The Premier Platform for Private</span> <br><span>Market Investing</span></h1>
+
+                <p class="welcome-text">Pr.eqt is a marketplace where ambitious founders and verified investors come
+                    together.</p>
+            </div>
+
+            <div class="welcome-content content-2" style="opacity: 0; transform: scale(0.7) translateY(50px);">
+                <div class="tag-indicator">
+                    <span class="bullet">•</span>
+                    So,why on earth was pr.eqt born?
+                </div>
+
+                <h1>
+                    <span>pr.eqt was created to unlock access</span>
+                    <br>
+                    <span>to private markets.</span>
+                </h1>
+                <p class="welcome-second-text">Because founders needed faster capital, and investors wanted in
+                    before the hype.
+                    <br>
+                    pr.eqt brings them together — a backstage pass to IPO &amp; pre-IPO deals, made
+                    simple.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Netwrok Section -->
+
+    <section class="network-section">
+        <img src="images/network/overlay.png" alt="overlay" class="network-overlay">
+
+
+        <div class="counter-section parent">
+            <div class="counter-box">
+                <h4><span class="counter" data-target="2">0</span>.3B+</h4>
+                <p>Volume</p>
+            </div>
+
+            <div class="network-line"></div>
+            <div class="counter-box">
+                <h4><span class="counter" data-target="500">0</span>+</h4>
+                <p>Deals</p>
+            </div>
+
+            <div class="network-line"></div>
+            <div class="counter-box">
+                <h4><span class="counter" data-target="50">0</span>K+</h4>
+                <p>Members</p>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <div class="network-main-container">
+            <div class="choose-section parent">
+                <div class="network-header">
+                    <div class="network-tag">
+                        <span class="bullet">•</span>
+                        Why Choose Us
+                    </div>
+                    <div>
+                        <h1>A network where founders, retail investors, and</h1>
+                        <h1><span>institutions connect.</span></h1>
+                    </div>
+                    <p>
+                        The seamless, trusted platform for founders and investors.
+                    </p>
+                </div>
+                <div class="cards-container">
+                    <!-- Card 1 -->
+                    <div class="choose-card card1">
+                        <div class="card-inner">
+                            <div class="card-left">
+
+                                <div class="card-left-text">Trust & Transparency</div>
+                                <div class="card-left-desc">Every deal depends on credibility and verified transactions,
+                                    ensuring secure data
+                                    rooms and transparent processes that investors can trust.</div>
+                                <div class="card-left-list">
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon1.svg" alt="tick">
+                                        </div>
+                                        <p>
+                                            Verified deals and secure processes ensure credibility.
+                                        </p>
+                                    </div>
+
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon2.svg" alt="lock">
+                                        </div>
+                                        <p>
+                                            Access exclusive opportunities typically reserved for institutions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-right">
+                                <img src="images/network/image1.png" alt="handshake">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="choose-card card2">
+                        <div class="card-inner">
+                            <div class="card-right">
+                                <img src="images/network/image2.png" alt="lightbulb">
+                            </div>
+                            <div class="card-left">
+
+                                <div class="card-left-text">Flexibility & Growth</div>
+                                <div class="card-left-desc">Raise capital pre-IPO or IPO, gain growth insights, and
+                                    connect with a thriving
+                                    founder-investor network.</div>
+                                <div class="card-left-list">
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon3.svg" alt="tick">
+                                        </div>
+                                        <p>
+                                            Raise capital in both private and public markets.
+                                        </p>
+                                    </div>
+
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon4.svg" alt="lock">
+                                        </div>
+                                        <p>
+                                            Participate in funding rounds before companies go public.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="choose-card card3">
+                        <div class="card-inner">
+                            <div class="card-left">
+
+                                <div class="card-left-text">Speed & Intelligence</div>
+                                <div class="card-left-desc">Move faster with technology that delivers real-time
+                                    intelligence, smart tracking, and
+                                    analytics for sharper decision-making..</div>
+                                <div class="card-left-list">
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon5.svg" alt="tick">
+                                        </div>
+                                        <p>
+                                            Process deals in milliseconds with our matching engine.
+                                        </p>
+                                    </div>
+
+                                    <div class="card-list">
+                                        <div>
+                                            <img src="images/network/icon6.svg" alt="lock">
+                                        </div>
+                                        <p>
+                                            Use analytics and search tools to close deals faster.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-right">
+                                <img src="images/network/image3.png" alt="chess">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="network-tag">
+                <span class="bullet">•</span>
+                Testimonials
+            </div>
+            <!-- <span>• Testimonials</span> -->
+            <h1>What investors are saying</h1>
+            <!-- </div> -->
+
+            <div class="sticky-container">
+                <div class="scroll-content" id="scrollContent">
+                    <!-- Card 1 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Rahul Khanna</h3>
+                                    <p>Managing Director, Crestpoint Ventures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”
+                            </p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Anita Mehra</h3>
+                                    <p>Angel Investor & Partner at Horizon Capital</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Marcus Veni</h3>
+                                    <p>Partner, Greybrook Investments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>David Holt</h3>
+                                    <p>Venture Capitalist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Priya Singh</h3>
+                                    <p>Private Equity Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Process Section -->
+
+    <section class="process-section">
+        <div class="process-container parent">
+            <div class="process-image">
+                <img src="images/process/process-left.png" alt="image">
+            </div>
+            <div class="process-right">
+                <div class="network-tag">
+                    <span class="bullet">•</span>
+                    Process
+                </div>
+                <h2>
+                    Get started in 3 simple
+                    steps
+                </h2>
+
+                <div class="process-card">
+                    <div class="process-card-img">
+                        <img src="images/process/card-1.png" alt="card1-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Create Your Profile</h3>
+                        <p>
+                            Sign up as a founder or investor. Complete your profile to unlock verified access.
+                        </p>
+                    </div>
+                </div>
+                <div class="process-card">
+                    <div class="process-card-img">
+                        <img src="images/process/card-2.png" alt="card2-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Explore & Connect</h3>
+                        <p>
+                            Browse live deals, join the community, and engage with data rooms securely.
+                        </p>
+                    </div>
+                </div>
+                <div class="process-card last-card">
+                    <div class="process-card-img">
+                        <img src="images/process/card-1.png" alt="card3-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Invest or Raise</h3>
+                        <p>
+                            List your deal for funding or commit to opportunities — all in one seamless flow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="deal-section">
+        <div class="deal-container parent">
+            <h2>Get the Preqt. App – The Deals You <br>Want, Wherever You Are.</h2>
+
+
+            <div class="deal-showcase">
+                <div class="phone-frame">
+                    <img src="images/deals/image.png" alt="App Screenshot">
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-container">
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q1. What types of deals are available?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">You can explore Pre-IPO, Private Equity, and Venture-backed deals
+                                verified through our due
+                                diligence process.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q2. Who can invest in these deals?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                Both accredited individuals and institutional investors with KYC-compliant profiles can
+                                participate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q3. How are deals verified?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                Our in-house analysts validate every deal for authenticity, legal compliance, and market
+                                viability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q4. Can I track my investments in the app?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                Yes! The app includes a built-in portfolio tracker that updates your returns and lock-in
+                                timelines.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q5. Are there minimum investment limits?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                Minimum investment requirements vary by deal type and are clearly displayed before you
+                                commit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Q6. How can I get updates on new opportunities?</span>
+                            <span class="icon"><img src="/images/deals/Arrow.svg" alt="Arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                Enable deal alerts in your app settings to get notified instantly when new opportunities
+                                go
+                                live.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section">
+        <div class="marq">
+            <div class="marq-inner">
+
+                <h2>
+                    Connect With a
+                    <span>Network Of Trusted Investors</span>
+                </h2>
+                <h2>
+                    Connect With a
+                    <span>Network Of Trusted Investors</span>
+                </h2>
+            </div>
+        </div>
+        <p class="footer_subText">Join our community to access verified investors, funding opportunities, and peer
+            insights.</p>
+        <div class="hero-btn-wrapper">
+            <div class="herobtn-blurborder herobtn-layer2">
+                <div class="hero-btn-border"></div>
+            </div>
+            <a class="hero-btn-a" href="#">
+                <div class="hero-btn-glow-wrapper">
+                    <div class="hero-btn-glow1"></div>
+                    <div class="hero-btn-glow2"></div>
+                </div>
+                <div class="hero-btn"><span class="hero-btn-text">Get Started
+                        Today</span>
+                    <div class="hero-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"
+                            aria-hidden="true">
+                            <path d="M18 8L22 12L18 16"></path>
+                            <path d="M2 12H22"></path>
+                        </svg></div>
+                </div>
+            </a>
+        </div>
+        <div class="footer-image">
+            <img src="images/footer/Globe.png" alt="footer-image">
+        </div>
+
+    </section>
+
+    <!-- Footer Bottom -->
+    <footer class="footer-bottom">
+        <div class="footer-bottom-image">
+            <img src="images/footer/logo.svg" alt="footer-image">
+        </div>
+        <nav class="footer-bottom-nav">
+            <a href="#">Home</a>
+            <a href="#">Deals</a>
+            <a href="#">Community</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms And Conditions</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Account</a>
+        </nav>
+        <hr class="footer-line">
+
+        <div class="footer-bottom-text">
+            © 2025 Pr.eqt. Private Ltd. | Powered by Passion, Driven by Discovery.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
