@@ -88,7 +88,7 @@ function animateNetworkCards() {
     const containerTop = cardsContainer.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    if (containerTop < windowHeight*0.8) {
+    if (containerTop < windowHeight * 0.8) {
         cardsAnimated = true;
 
         // Large initial space (200px) that reduces as you scroll
@@ -109,7 +109,7 @@ function animateNetworkCards() {
 
         // Add scroll listener to adjust spacing smoothly
         window.addEventListener('scroll', () => {
-            const scrollProgress = Math.max(0, Math.min(1, 
+            const scrollProgress = Math.max(0, Math.min(1,
                 (window.scrollY - containerTop) / (windowHeight * 0.5)
             ));
 
@@ -137,68 +137,192 @@ animateNetworkCards();
 // Investor Section (Testimonials per-card snapping with end offset and pass-through)
 gsap.registerPlugin(ScrollTrigger);
 
-    // Only enable horizontal scroll on desktop
-    if (window.innerWidth > 1024) {
-      const section = document.querySelector(".testimonials-section");
-      const scrollContent = document.querySelector(".scroll-content");
+// Only enable horizontal scroll on desktop
+if (window.innerWidth > 1024) {
+    const section = document.querySelector(".testimonials-section");
+    const scrollContent = document.querySelector(".scroll-content");
 
-      const totalScrollWidth = scrollContent.scrollWidth;
-      const windowWidth = window.innerWidth;
-      const scrollDistance = totalScrollWidth - windowWidth + 400; // adjust buffer
+    const totalScrollWidth = scrollContent.scrollWidth;
+    const windowWidth = window.innerWidth;
+    const scrollDistance = totalScrollWidth - windowWidth + 400; // adjust buffer
 
-      gsap.to(scrollContent, {
+    gsap.to(scrollContent, {
         x: -scrollDistance,
         ease: "none",
         scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => "+=" + (scrollDistance * 1.2),
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
+            trigger: section,
+            start: "top top",
+            end: () => "+=" + (scrollDistance * 1.2),
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
         },
-      });
+    });
+}
+
+
+// mobile view
+
+function initMobileCarousel() {
+    const track = document.getElementById('carouselTrackMob');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.testimonial-card-wrapper');
+    let index = 0;
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let isDragging = false;
+    let autoSlide;
+
+    
+
+    function getCardsPerView() {
+    if (window.innerWidth > 1024) return 3;
+    if (window.innerWidth > 992) return 2;
+    return 1;
+  }
+
+    function startAutoSlide() {
+        autoSlide = setInterval(() => {
+            index = (index + 1) % cards.length;
+            moveToIndex();
+        }, 3000);
     }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlide);
+    }
+
+    function moveToIndex() {
+        currentTranslate = -index * (cards[0].offsetWidth + 20);
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function updateCardStyles() {
+        const cardsPerView = getCardsPerView();
+        const width = `${100 / cardsPerView}%`;
+
+        cards.forEach(card => {
+            card.style.width = width;
+            card.style.flex = `0 0 ${width}`;
+        });
+
+        // Reset position after updating card widths
+        moveToIndex();
+    }
+
+    function dragStart(e) {
+        stopAutoSlide();
+        isDragging = true;
+        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        prevTranslate = currentTranslate;
+        track.style.transition = 'none';
+    }
+
+    function dragMove(e) {
+        if (!isDragging) return;
+        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const delta = x - startX;
+        currentTranslate = prevTranslate + delta;
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+      function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const moved = currentTranslate - prevTranslate;
+        if (moved < -100 && index < cards.length - 1) index++;
+        if (moved > 100 && index > 0) index--;
+        track.style.transition = 'transform 0.6s ease';
+        moveToIndex();
+        startAutoSlide();
+      }
+
+    // function dragEnd() {
+    //     if (!isDragging) return;
+    //     isDragging = false;
+    //     const cardsPerView = getCardsPerView();
+    //     const cardWidth = track.offsetWidth / cardsPerView;
+
+    //     const moved = currentTranslate - prevTranslate;
+    //     if (moved < -100 && index < cards.length - cardsPerView) index++;
+    //     if (moved > 100 && index > 0) index--;
+
+    //     track.style.transition = 'transform 0.6s ease';
+    //     moveToIndex();
+    //     startAutoSlide();
+    // }
+
+    // Events
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('touchstart', dragStart);
+    track.addEventListener('mouseup', dragEnd);
+    track.addEventListener('mouseleave', dragEnd);
+    track.addEventListener('touchend', dragEnd);
+    track.addEventListener('mousemove', dragMove);
+    track.addEventListener('touchmove', dragMove);
+
+   window.addEventListener('resize', () => {
+    updateCardStyles();
+    moveToIndex();
+  });
+    updateCardStyles();
+    moveToIndex();
+    startAutoSlide();
+}
+
+// ✅ Initialize only for screens <= 1024px
+if (window.innerWidth <= 1024) {
+    initMobileCarousel();
+}
+
+// Re-check on resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 1024) {
+        initMobileCarousel();
+    }
+});
 
 // deal section
 
-$(document).ready(function() {
-  $(".faq-item").click(function() {
-    if ($(this).hasClass("active")) {
-      $(this).removeClass("active");
-    } else {
-      $(".faq-item.active").removeClass("active");
-      $(this).addClass("active");
-    }
-  });
+$(document).ready(function () {
+    $(".faq-item").click(function () {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+        } else {
+            $(".faq-item.active").removeClass("active");
+            $(this).addClass("active");
+        }
+    });
 });
 
 
 
 // Hamburger Menu
 
-  const hamburger = document.getElementById("hamburger-btn");
-  const navLinks = document.querySelector(".nav-links");
-  const overlay = document.getElementById("overlay");
-  const links = document.querySelectorAll(".nav-links a");
-  const mobileBtn = document.querySelector(".nav-btn-mobile .nav-btn-container");
+const hamburger = document.getElementById("hamburger-btn");
+const navLinks = document.querySelector(".nav-links");
+const overlay = document.getElementById("overlay");
+const links = document.querySelectorAll(".nav-links a");
+const mobileBtn = document.querySelector(".nav-btn-mobile .nav-btn-container");
 
-  function closeMenu() {
+function closeMenu() {
     navLinks.classList.remove("active");
     hamburger.classList.remove("active");
     overlay.classList.remove("active");
     document.body.style.overflow = "auto";
-  }
+}
 
-  hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {
     const isActive = hamburger.classList.toggle("active");
     navLinks.classList.toggle("active");
     overlay.classList.toggle("active");
 
     document.body.style.overflow = isActive ? "hidden" : "auto";
-  });
+});
 
-  overlay.addEventListener("click", closeMenu);
-  links.forEach(link => link.addEventListener("click", closeMenu));
-  if (mobileBtn) mobileBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+links.forEach(link => link.addEventListener("click", closeMenu));
+if (mobileBtn) mobileBtn.addEventListener("click", closeMenu);
 
