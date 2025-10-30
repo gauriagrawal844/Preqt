@@ -1284,7 +1284,7 @@ section.testimonials-section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 60vh;
+    height: 50vh;
     width: 100%;
     overflow: hidden;
 }
@@ -1961,6 +1961,7 @@ hr {
     .hero-content p {
         font-size: 15px;
         max-width: 68%;
+        line-height:20px;
     }
 
     .hero-content p br {
@@ -2023,7 +2024,7 @@ hr {
     }
 
     .choose-card {
-        top: 7%;
+        top: 10%;
     }
 
     .card-left-list {
@@ -2051,6 +2052,14 @@ hr {
         object-fit: fill;
     }
 
+    .card-left-text {
+    font-size: 35px;
+    line-height: 35px;
+    }
+    .card-left-desc {
+    font-size: 18px;
+    line-height: 23px;
+}
     .counter-box h4 {
         font-size: 32px;
         line-height: 42px;
@@ -2128,6 +2137,11 @@ hr {
 }
 
 @media(max-width:700px) {
+    .hero-content{
+
+        top: 100px;
+    }
+
     .desktop-view {
         display: none;
     }
