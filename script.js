@@ -164,125 +164,85 @@ if (window.innerWidth > 1024) {
 // mobile view
 
 function initMobileCarousel() {
-    const track = document.getElementById('carouselTrackMob');
-    if (!track) return;
+  const $track = $('#carouselTrackMob');
 
-    const cards = track.querySelectorAll('.testimonial-card-wrapper');
-    let index = 0;
-    let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let isDragging = false;
-    let autoSlide;
+  // Avoid reinitializing
+  if ($track.hasClass('slick-initialized')) return;
 
-    
-
-    function getCardsPerView() {
-    if (window.innerWidth > 1024) return 3;
-    if (window.innerWidth > 992) return 2;
-    return 1;
-  }
-
-    function startAutoSlide() {
-        autoSlide = setInterval(() => {
-            index = (index + 1) % cards.length;
-            moveToIndex();
-        }, 3000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlide);
-    }
-
-    function moveToIndex() {
-        currentTranslate = -index * (cards[0].offsetWidth + 20);
-        track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function updateCardStyles() {
-        const cardsPerView = getCardsPerView();
-        const width = `${100 / cardsPerView}%`;
-
-        cards.forEach(card => {
-            card.style.width = width;
-            card.style.flex = `0 0 ${width}`;
-        });
-
-        // Reset position after updating card widths
-        moveToIndex();
-    }
-
-    function dragStart(e) {
-        stopAutoSlide();
-        isDragging = true;
-        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        prevTranslate = currentTranslate;
-        track.style.transition = 'none';
-    }
-
-    function dragMove(e) {
-        if (!isDragging) return;
-        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        const delta = x - startX;
-        currentTranslate = prevTranslate + delta;
-        track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-      function dragEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        const moved = currentTranslate - prevTranslate;
-        if (moved < -100 && index < cards.length - 1) index++;
-        if (moved > 100 && index > 0) index--;
-        track.style.transition = 'transform 0.6s ease';
-        moveToIndex();
-        startAutoSlide();
-      }
-
-    // function dragEnd() {
-    //     if (!isDragging) return;
-    //     isDragging = false;
-    //     const cardsPerView = getCardsPerView();
-    //     const cardWidth = track.offsetWidth / cardsPerView;
-
-    //     const moved = currentTranslate - prevTranslate;
-    //     if (moved < -100 && index < cards.length - cardsPerView) index++;
-    //     if (moved > 100 && index > 0) index--;
-
-    //     track.style.transition = 'transform 0.6s ease';
-    //     moveToIndex();
-    //     startAutoSlide();
-    // }
-
-    // Events
-    track.addEventListener('mousedown', dragStart);
-    track.addEventListener('touchstart', dragStart);
-    track.addEventListener('mouseup', dragEnd);
-    track.addEventListener('mouseleave', dragEnd);
-    track.addEventListener('touchend', dragEnd);
-    track.addEventListener('mousemove', dragMove);
-    track.addEventListener('touchmove', dragMove);
-
-   window.addEventListener('resize', () => {
-    updateCardStyles();
-    moveToIndex();
+  $track.slick({
+    infinite: true,           // 🔁 continuous loop
+    autoplay: true,           // ▶️ auto-slide
+    autoplaySpeed: 3000,      // 3s delay
+    speed: 600,               // slide transition speed
+    arrows: false,            // no prev/next arrows
+    dots: true,              // no dots (optional: set true)
+    pauseOnHover: true,       // pause on hover
+    pauseOnFocus: false,
+    swipeToSlide: true,
+    draggable: true,
+    touchMove: true,
+    cssEase: 'ease',
+    slidesToShow: 1,      
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   });
-    updateCardStyles();
-    moveToIndex();
-    startAutoSlide();
 }
 
-// ✅ Initialize only for screens <= 1024px
-if (window.innerWidth <= 1024) {
+ function updateSlideSpacing() {
+      const gap = 20; // space between slides
+      const slideWidth = $('.testimonial-card-wrapper').outerWidth(true);
+
+      $('.testimonial-card-wrapper').each(function () {
+        $(this).css({
+        marginLeft: `${gap}px`,
+          marginRight: `${gap}px`,
+        });
+      });
+
+      // adjust track width so last card isn't cut
+      const totalWidth =
+        $('.testimonial-card-wrapper').length * (slideWidth + gap);
+      $('.slick-track').css('width', `${totalWidth}px`);
+    }
+
+    // Call initially and on resize
+    updateSlideSpacing();
+    $(window).on('resize', updateSlideSpacing);
+
+
+// ✅ Initialize only for screens ≤ 1024px
+function handleCarouselInit() {
+  if (window.innerWidth <= 1024) {
     initMobileCarousel();
+  } else {
+    const $track = $('#carouselTrackMob');
+    if ($track.hasClass('slick-initialized')) {
+      $track.slick('unslick'); // Destroy when above 1024px
+    }
+  }
 }
+
+// Initial load
+handleCarouselInit();
 
 // Re-check on resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 1024) {
-        initMobileCarousel();
-    }
+$(window).on('resize', function () {
+  handleCarouselInit();
 });
+
 
 // deal section
 
