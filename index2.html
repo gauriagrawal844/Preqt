@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials — Scroll-Controlled</title>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000;
+      color: white;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    section.testimonials-section {
+      width: 100%;
+      background: #111;
+      position: relative;
+    }
+
+    .testimonials-container {
+      width: 100%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .network-tag {
+      font-size: 18px;
+      color: white;
+    }
+
+    .network-tag .bullet {
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    .testimonials-container h1 {
+      font-size: 64px;
+      font-weight: 500;
+      text-align: center;
+      color: white;
+      background: linear-gradient(180deg, #fdf7fe, #d8bf7e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 53px 0 80px;
+    }
+
+    .sticky-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .scroll-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 0 200px;
+    }
+
+    .testimonial-card-wrapper {
+      flex: 0 0 520px;
+      border-radius: 20px;
+      border: 0.5px solid rgba(171, 171, 171, 0.4);
+      background: #1a1a1a;
+      height: 480px;
+    }
+
+    .testimonial-card {
+      border-radius: 16px;
+      background: #242424;
+      padding: 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-image: url(images/investors/bg.svg);
+      background-repeat: no-repeat;
+      background-position: 100% 100%;
+      background-size: 75% auto;
+    }
+
+    .testimonial-card p {
+      color: white;
+      font-size: 22px;
+      font-weight: 300;
+      margin: 0 0 1rem;
+      line-height: 30px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .profile img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile div h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .profile div p {
+      font-size: 15px;
+      font-weight: 300;
+      color: white;
+      margin-bottom: unset;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive — below 1024px switch to normal vertical layout */
+    @media (max-width: 1024px) {
+      .testimonials-container {
+        position: static;
+        height: auto;
+        padding: 60px 20px;
+      }
+
+      .sticky-container {
+        height: auto;
+        justify-content: center;
+      }
+
+      .scroll-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 24px;
+        transform: none !important;
+      }
+
+      .testimonial-card-wrapper {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-container">
+      <div class="network-tag"><span class="bullet">•</span> Testimonials</div>
+      <h1>What investors are saying</h1>
+
+      <div class="sticky-container">
+        <div class="scroll-content">
+          <!-- repeat wrappers -->
+          <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+              <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went mainstream. The due diligence tools and secure data rooms gave me confidence to move quickly.”</p>
+              <div class="profile">
+                <img src="images/investors/profile1.jpg" alt="Rahul">
+                <div><h3>Rahul Khanna</h3><p>Managing Director, Crestpoint Ventures</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+              <p>“pr.eqt’s investor tools gave me access to opportunities that were normally closed off. I could assess deals faster and with full transparency.”</p>
+              <div class="profile">
+                <img src="images/investors/profile2.jpg" alt="Anita">
+                <div><h3>Anita Mehra</h3><p>Angel Investor & Partner at Horizon Capital</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+              <p>“The best platform for accredited investors to explore pre-IPO markets. The experience was seamless and professional.”</p>
+              <div class="profile">
+                <img src="images/investors/profile3.jpg" alt="Marcus">
+                <div><h3>Marcus Veni</h3><p>Partner, Greybrook Investments</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+              <p>“The level of data transparency on pr.eqt is unmatched. It helped me make faster and more confident decisions.”</p>
+              <div class="profile">
+                <img src="images/investors/profile4.jpg" alt="David">
+                <div><h3>David Holt</h3><p>Venture Capitalist</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card-wrapper">
+            <div class="testimonial-card">
+              <p>“I’ve used pr.eqt across multiple deals, and it’s become my go-to source for discovering private investment opportunities.”</p>
+              <div class="profile">
+                <img src="images/investors/profile5.jpg" alt="Priya">
+                <div><h3>Priya Singh</h3><p>Private Equity Partner</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Only enable horizontal scroll on desktop
+    if (window.innerWidth > 1024) {
+      const section = document.querySelector(".testimonials-section");
+      const scrollContent = document.querySelector(".scroll-content");
+
+      const totalScrollWidth = scrollContent.scrollWidth;
+      const windowWidth = window.innerWidth;
+      const scrollDistance = totalScrollWidth - windowWidth + 400; // adjust buffer
+
+      gsap.to(scrollContent, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => "+=" + (scrollDistance * 1.2),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+<section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="network-tag">
+                <span class="bullet">•</span>
+                Testimonials
+            </div>
+            <h1>What investors are saying</h1>
+
+            <div class="sticky-container">
+                <div class="scroll-content" id="scrollContent">
+                    <!-- Card 1 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Rahul Khanna</h3>
+                                    <p>Managing Director, Crestpoint Ventures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”
+                            </p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Anita Mehra</h3>
+                                    <p>Angel Investor & Partner at Horizon Capital</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Marcus Veni</h3>
+                                    <p>Partner, Greybrook Investments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>David Holt</h3>
+                                    <p>Venture Capitalist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="testimonial-card-wrapper">
+                        <div class="testimonial-card">
+                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
+                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
+                                quickly.”</p>
+                            <div class="profile">
+                                <img src="images/investors/profile.svg" alt="user">
+                                <div>
+                                    <h3>Priya Singh</h3>
+                                    <p>Private Equity Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    .testimonials-section {
+    width: 100%;
+    /* position: relative; */
+    background: #111;
+    overflow: visible;
+}
+
+.testimonials-container {
+    /* position: relative; */
+    /* width: 100%; */
+    /* height: 100%; */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonials-container .network-tag {
+    margin: 0;
+}
+
+.testimonials-container h1 {
+    font-size: 64px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: linear-gradient(180deg, #fdf7fe, #d8bf7e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 53px 0 80px;
+}
+
+/* .horizontal-scroll-section {
+    position: relative;
+} */
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #000;
+}
+
+.scroll-content {
+    display: flex;
+    gap: 20px;
+    /* height: 80%; */
+    align-items: center;
+    padding-left: 300px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+}
+
+.testimonial-card-wrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% /3.5);
+    padding: 24px;
+    border-radius: 20px;
+    border: .5px solid rgba(171, 171, 171, .4);
+    background: #1a1a1a;
+    height: 500px;
+}
+
+.testimonial-card {
+    border-radius: 16px;
+    background: #242424;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url(images/investors/bg.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 75% auto;
+}
+
+.testimonial-card p {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0 0 1rem;
+    line-height: 32px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.profile img {
+    /* width: 38px;
+    height: 38px;
+    border-radius: 50%; */
+    /* object-fit: cover; */
+    /* border: 2px solid #fbeec1; */
+}
+
+
+.profile div h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.profile div p {
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: unset;
+    letter-spacing: 1px;
+}
+

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preqt-psi</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 </head>
 
 <body>
@@ -343,24 +345,25 @@
     </section>
 
     <!-- Investor Section -->
-    <section class="testimonials-section">
+
+    <section class="testimonials-section" id="testimonials">
         <div class="testimonials-container">
             <div class="network-tag">
-                <span class="bullet">•</span>
+                <span class="bullet">•</span> 
                 Testimonials
             </div>
             <h1>What investors are saying</h1>
 
             <div class="sticky-container">
-                <div class="scroll-content" id="scrollContent">
-                    <!-- Card 1 -->
+                <div class="scroll-content">
+                    <!-- repeat wrappers -->
                     <div class="testimonial-card-wrapper">
                         <div class="testimonial-card">
                             <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
                                 mainstream. The due diligence tools and secure data rooms gave me confidence to move
                                 quickly.”</p>
                             <div class="profile">
-                                <img src="images/investors/profile.svg" alt="user">
+                                <img src="images/investors/profile.svg" alt="Rahul">
                                 <div>
                                     <h3>Rahul Khanna</h3>
                                     <p>Managing Director, Crestpoint Ventures</p>
@@ -369,15 +372,12 @@
                         </div>
                     </div>
 
-                    <!-- Card 2 -->
                     <div class="testimonial-card-wrapper">
                         <div class="testimonial-card">
-                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
-                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
-                                quickly.”
-                            </p>
+                            <p>“pr.eqt’s investor tools gave me access to opportunities that were normally closed off. I
+                                could assess deals faster and with full transparency.”</p>
                             <div class="profile">
-                                <img src="images/investors/profile.svg" alt="user">
+                                <img src="images/investors/profile.svg" alt="Anita">
                                 <div>
                                     <h3>Anita Mehra</h3>
                                     <p>Angel Investor & Partner at Horizon Capital</p>
@@ -386,14 +386,12 @@
                         </div>
                     </div>
 
-                    <!-- Card 3 -->
                     <div class="testimonial-card-wrapper">
                         <div class="testimonial-card">
-                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
-                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
-                                quickly.”</p>
+                            <p>“The best platform for accredited investors to explore pre-IPO markets. The experience
+                                was seamless and professional.”</p>
                             <div class="profile">
-                                <img src="images/investors/profile.svg" alt="user">
+                                <img src="images/investors/profile.svg" alt="Marcus">
                                 <div>
                                     <h3>Marcus Veni</h3>
                                     <p>Partner, Greybrook Investments</p>
@@ -402,14 +400,12 @@
                         </div>
                     </div>
 
-                    <!-- Card 4 -->
                     <div class="testimonial-card-wrapper">
                         <div class="testimonial-card">
-                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
-                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
-                                quickly.”</p>
+                            <p>“The level of data transparency on pr.eqt is unmatched. It helped me make faster and more
+                                confident decisions.”</p>
                             <div class="profile">
-                                <img src="images/investors/profile.svg" alt="user">
+                                <img src="images/investors/profile.svg" alt="David">
                                 <div>
                                     <h3>David Holt</h3>
                                     <p>Venture Capitalist</p>
@@ -418,14 +414,12 @@
                         </div>
                     </div>
 
-                    <!-- Card 5 -->
                     <div class="testimonial-card-wrapper">
                         <div class="testimonial-card">
-                            <p>“Through pr.eqt I discovered high-quality pre-IPO opportunities before they went
-                                mainstream. The due diligence tools and secure data rooms gave me confidence to move
-                                quickly.”</p>
+                            <p>“I’ve used pr.eqt across multiple deals, and it’s become my go-to source for discovering
+                                private investment opportunities.”</p>
                             <div class="profile">
-                                <img src="images/investors/profile.svg" alt="user">
+                                <img src="images/investors/profile.svg" alt="Priya">
                                 <div>
                                     <h3>Priya Singh</h3>
                                     <p>Private Equity Partner</p>
@@ -433,7 +427,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -660,8 +653,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
 
 </body>
 

@@ -134,45 +134,31 @@ animateNetworkCards();
 
 
 
-// Investor Section
-const scrollSection = document.querySelector(".testimonials-container");
-const scrollContent = document.getElementById("scrollContent");
+// Investor Section (Testimonials per-card snapping with end offset and pass-through)
+gsap.registerPlugin(ScrollTrigger);
 
-// Calculate how far the cards can move horizontally
-function updateScrollSettings() {
-    const totalScrollWidth = scrollContent.scrollWidth - window.innerWidth;
-    console.log("window", window.innerWidth, "totalScrollWidth", totalScrollWidth);
-    
-    const scrollDuration = scrollContent.scrollWidth; // Makes section height proportional to card width
-    scrollSection.style.height = scrollDuration + "px";
+    // Only enable horizontal scroll on desktop
+    if (window.innerWidth > 1024) {
+      const section = document.querySelector(".testimonials-section");
+      const scrollContent = document.querySelector(".scroll-content");
 
-    // Store values for use in scroll handler
-    scrollSection.dataset.totalScrollWidth = totalScrollWidth;
-    scrollSection.dataset.scrollDuration = scrollDuration;
-}
+      const totalScrollWidth = scrollContent.scrollWidth;
+      const windowWidth = window.innerWidth;
+      const scrollDistance = totalScrollWidth - windowWidth + 400; // adjust buffer
 
-// Initial setup and on resize
-updateScrollSettings();
-window.addEventListener("resize", updateScrollSettings);
-
-// Scroll event
-window.addEventListener("scroll", () => {
-    const rect = scrollSection.getBoundingClientRect();
-    const scrollTop = window.scrollY;
-    const sectionTop = scrollSection.offsetTop;
-    const sectionHeight = scrollSection.offsetHeight;
-    const totalScrollWidth = parseFloat(scrollSection.dataset.totalScrollWidth);
-
-    // Scroll only when the section is in viewport
-    if (scrollTop >= sectionTop && scrollTop <= sectionTop + sectionHeight - window.innerHeight) {
-        const progress = (scrollTop - sectionTop) / (sectionHeight - window.innerHeight);
-        const translateX = totalScrollWidth * progress;
-        scrollContent.style.transform = `translateX(-${translateX}px)`;
+      gsap.to(scrollContent, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => "+=" + (scrollDistance * 1.2),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
     }
-
-    
-});
-
 
 // deal section
 
