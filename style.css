@@ -1124,8 +1124,8 @@ body.menu-open {
 
 .cards-container {
     position: relative;
-    height: 180vh;
-    padding-top: 100px;
+    height: 190vh;
+    padding-top: 50px;
     /* Initial space above first card */
     transition: padding-top 0.8s ease-out;
 }
@@ -1263,6 +1263,7 @@ section.testimonials-section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding-top: 70px;
 }
 
 .testimonials-container .network-tag {
@@ -1284,7 +1285,7 @@ section.testimonials-section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
 }
@@ -2050,6 +2051,7 @@ hr {
     .card-right img {
         max-width: unset;
         object-fit: fill;
+        height:350px;
     }
 
     .card-left-text {
@@ -2217,6 +2219,11 @@ hr {
         font-size: 14px;
     }
 
+    .cards-container {
+        height: 300vh;
+        padding-top: 50px;
+    }
+
     .card-inner {
         -webkit-backface-visibility: hidden;
         contain: paint;
@@ -2239,6 +2246,10 @@ hr {
         font-weight: 400;
     }
 
+    .network-main-container {
+        padding:80px 0;
+    }
+
     .card-left-desc {
         font-size: 16px;
         margin-top: unset;
@@ -2251,6 +2262,7 @@ hr {
     .card-right img {
         width: 100%;
         object-fit: fill;
+        height:300px;
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
     }
