@@ -1384,6 +1384,10 @@ section.testimonials-section {
     .sticky-container {
         display: none;
     }
+    .testimonials-container {
+        padding-top: 0;
+        height: unset;
+    }
 
     .testimonials-container h1 {
         font-size: 48px;

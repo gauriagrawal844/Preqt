@@ -149,7 +149,7 @@ if (window.innerWidth > 1024) {
     gsap.to(scrollContent, {
         ease: "power5.inOut",
         x: -scrollDistance,
-        ease: "none",
+        // ease: "none",
         scrollTrigger: {
             trigger: section,
             start: "top top",
@@ -159,6 +159,13 @@ if (window.innerWidth > 1024) {
             anticipatePin: 1,
         },
     });
+    if(window.innerWidth < 1024){
+         gsap.to(scrollContent, {
+        scrollTrigger: {
+            pin:false
+        },
+    });
+    }
 }
 
 
