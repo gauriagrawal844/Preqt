@@ -132,6 +132,8 @@ window.addEventListener('scroll', () => {
 // Initial check
 animateNetworkCards();
 
+
+
 // Investor Section
 const scrollSection = document.querySelector(".testimonials-container");
 const scrollContent = document.getElementById("scrollContent");
@@ -141,7 +143,7 @@ function updateScrollSettings() {
     const totalScrollWidth = scrollContent.scrollWidth - window.innerWidth;
     console.log("window", window.innerWidth, "totalScrollWidth", totalScrollWidth);
     
-    const scrollDuration = scrollContent.scrollWidth * 0.4; // Makes section height proportional to card width
+    const scrollDuration = scrollContent.scrollWidth; // Makes section height proportional to card width
     scrollSection.style.height = scrollDuration + "px";
 
     // Store values for use in scroll handler
@@ -167,6 +169,8 @@ window.addEventListener("scroll", () => {
         const translateX = totalScrollWidth * progress;
         scrollContent.style.transform = `translateX(-${translateX}px)`;
     }
+
+    
 });
 
 
@@ -182,3 +186,33 @@ $(document).ready(function() {
     }
   });
 });
+
+
+
+// Hamburger Menu
+
+  const hamburger = document.getElementById("hamburger-btn");
+  const navLinks = document.querySelector(".nav-links");
+  const overlay = document.getElementById("overlay");
+  const links = document.querySelectorAll(".nav-links a");
+  const mobileBtn = document.querySelector(".nav-btn-mobile .nav-btn-container");
+
+  function closeMenu() {
+    navLinks.classList.remove("active");
+    hamburger.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  hamburger.addEventListener("click", () => {
+    const isActive = hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
+
+    document.body.style.overflow = isActive ? "hidden" : "auto";
+  });
+
+  overlay.addEventListener("click", closeMenu);
+  links.forEach(link => link.addEventListener("click", closeMenu));
+  if (mobileBtn) mobileBtn.addEventListener("click", closeMenu);
+

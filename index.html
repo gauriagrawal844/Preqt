@@ -12,26 +12,43 @@
 <body>
     <section class="navbar-parent">
         <header class="navbar parent">
-            <div class=navbar-first-part>
-                <div class="nav-logo"><img src="images/navbar/logo.svg" alt="logo"></div>
+            <div class="navbar-first-part">
+                <div class="nav-logo">
+                    <img src="images/navbar/logo.svg" alt="logo">
+                </div>
+
                 <div class="nav-links">
-                    <div class="nav-item">
-                        <a href="#">Deals</a>
-                        <div class="helo"></div>
+                    <div class="nav-links-a">
+                        <div class="nav-item"><a href="#deals">Deals</a>
+                            <div class="helo"></div>
+                        </div>
+                        <div class="nav-item"><a href="#community">Community</a>
+                            <div class="helo"></div>
+                        </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="#">Community</a>
-                        <div class="helo"></div>
+                    <div class="nav-btn-mobile">
+                        <button class="nav-btn-container">
+                            <span class="nav-btn-content">Sign In</span>
+                        </button>
                     </div>
                 </div>
             </div>
+
             <div class="nav-btn">
                 <button class="nav-btn-container">
                     <span class="nav-btn-content">Sign In</span>
                 </button>
             </div>
+
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
     </section>
+
 
     <section class=hero-section>
         <div class="hero-container">
@@ -332,9 +349,7 @@
                 <span class="bullet">•</span>
                 Testimonials
             </div>
-            <!-- <span>• Testimonials</span> -->
             <h1>What investors are saying</h1>
-            <!-- </div> -->
 
             <div class="sticky-container">
                 <div class="scroll-content" id="scrollContent">
@@ -418,9 +433,9 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -645,8 +660,8 @@
     </footer>
 
     <script src="script.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 </body>
 
