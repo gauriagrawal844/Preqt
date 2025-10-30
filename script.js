@@ -147,7 +147,7 @@ if (window.innerWidth > 1024) {
     const scrollDistance = totalScrollWidth - windowWidth + 400; // adjust buffer
 
     gsap.to(scrollContent, {
-        ease: "power5.inOut",
+        ease: "power2.inOut",
         x: -scrollDistance,
         // ease: "none",
         scrollTrigger: {
