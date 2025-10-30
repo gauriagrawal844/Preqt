@@ -1320,7 +1320,7 @@ body.menu-open {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url(/images/investors/bg.svg);
+    background-image: url(images/investors/bg.svg);
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: 75% auto;
@@ -1627,7 +1627,7 @@ body.menu-open {
 .icon {
     width: 45px;
     height: 45px;
-    background-image: url(/images/deals/faq-arrow-shadow.svg);
+    background-image: url(images/deals/faq-arrow-shadow.svg);
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
