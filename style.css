@@ -1384,6 +1384,7 @@ section.testimonials-section {
     .sticky-container {
         display: none;
     }
+
     .testimonials-container {
         padding-top: 0;
         height: unset;
@@ -1953,6 +1954,32 @@ hr {
     }
 }
 
+@media(max-height:830px) {
+    .hero-content {
+        top: 90px;
+    }
+}
+
+@media(max-height:670px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .testimonials-container {
+        padding-top: 46px;
+    }
+
+    .network-header {
+        padding-top: 50px;
+    }
+   
+}
+
 @media (max-width:768px) {
 
 
@@ -1965,8 +1992,13 @@ hr {
 
     .hero-content p {
         font-size: 15px;
-        max-width: 68%;
-        line-height:20px;
+        max-width: 85%;
+        line-height: 20px;
+    }
+
+    .hero-btn-a {
+        height: 36px;
+        padding: 0 36px;
     }
 
     .hero-content p br {
@@ -2055,17 +2087,19 @@ hr {
     .card-right img {
         max-width: unset;
         object-fit: fill;
-        height:350px;
+        height: 350px;
     }
 
     .card-left-text {
-    font-size: 35px;
-    line-height: 35px;
+        font-size: 35px;
+        line-height: 35px;
     }
+
     .card-left-desc {
-    font-size: 18px;
-    line-height: 23px;
-}
+        font-size: 18px;
+        line-height: 23px;
+    }
+
     .counter-box h4 {
         font-size: 32px;
         line-height: 42px;
@@ -2143,7 +2177,7 @@ hr {
 }
 
 @media(max-width:700px) {
-    .hero-content{
+    .hero-content {
 
         top: 100px;
     }
@@ -2164,22 +2198,38 @@ hr {
 
 @media(max-width:480px) {
     .hero-btn-a {
-        padding: 0 35px;
+        padding: 0 22px;
+        height: 30px;
+        font-size: 10px;
     }
 
     /* hero-section */
+
+    #myVideo {
+        height: 85%;
+    }
+
+    .hero-image {
+        top: calc(50% + -17px);
+    }
+
+    .hero-content {
+        top: 75px;
+    }
+
     .hero-content h1 {
         font-size: 24px;
     }
 
     .hero-overlay {
         top: 79%;
+        height: 100px;
     }
 
     .hero-content p {
         font-size: 14px;
         max-width: 80%;
-        line-height: 20px;
+        line-height: 17px;
     }
 
     /* welcome section */
@@ -2251,7 +2301,7 @@ hr {
     }
 
     .network-main-container {
-        padding:80px 0;
+        padding: 80px 0;
     }
 
     .card-left-desc {
@@ -2266,7 +2316,7 @@ hr {
     .card-right img {
         width: 100%;
         object-fit: fill;
-        height:300px;
+        height: 270px;
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
     }
@@ -2283,16 +2333,17 @@ hr {
 
     .card-list p {
         font-size: 14px;
-        line-height: 22px;
+        line-height: 17px;
     }
 
     .card-list {
-        padding: 16px 10px;
+        padding: 12px 10px;
         gap: 11px;
     }
-        .card-left-desc {
+
+    .card-left-desc {
         font-size: 14px;
-        }
+    }
 
     /* testimonials section */
 
@@ -2386,5 +2437,3 @@ hr {
         display: none;
     }
 }
-
-@media(max-width:375px) {}
